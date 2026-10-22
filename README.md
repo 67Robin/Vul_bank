@@ -1,4 +1,4 @@
-# 🏦 StellarX (Vul_Bank) — Vulnerable Banking & CTF Platform
+# 🏦 StellarX — Vulnerable Banking & CTF Platform
 
 [![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Ready-blue?logo=docker)](https://www.docker.com/)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js%2015-black?logo=next.js)](https://nextjs.org/)
