@@ -21,6 +21,30 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
+        
+      - name: Diagnose GitHub OIDC claims
+        shell: bash
+        env:
+          ACTIONS_ID_TOKEN_REQUEST_URL: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }}
+          ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
+        run: |
+          set -euo pipefail
+          TOKEN=$(curl -fsS \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            --get \
+            --data-urlencode "audience=sts.amazonaws.com" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq -r '.value')
+
+          export TOKEN
+          node -e '
+            const claims = JSON.parse(
+              Buffer.from(process.env.TOKEN.split(".")[1], "base64url").toString()
+            );
+            console.log("iss:", claims.iss);
+            console.log("aud:", claims.aud);
+            console.log("sub:", claims.sub);
+          '
+
 
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
