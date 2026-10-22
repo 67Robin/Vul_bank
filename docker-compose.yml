@@ -42,7 +42,6 @@ services:
       - "33333:3000"
     depends_on:
       - backend
-    restart: unless-stopped
-    
+    restart: unless-stopped    
 volumes:
   pgdata:
