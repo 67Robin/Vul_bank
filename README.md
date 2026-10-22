@@ -197,5 +197,3 @@ docker-compose exec backend python seed.py
 
 ---
 
-## 📄 License
-This project is open-source and distributed under the [ISC License](LICENSE).
