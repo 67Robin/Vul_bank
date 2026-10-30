@@ -6,6 +6,8 @@
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL%2015-336791?logo=postgresql)](https://www.postgresql.org/)
 [![Cybersecurity](https://img.shields.io/badge/Purpose-Cybersecurity%20Education%20%26%20CTF-crimson)](#)
 
+* [Click here for Demo](https://stellarx.robinkp.win)
+
 **StellarX** (also known as **Vul_Bank**) is a full-stack, containerized banking web application intentionally engineered with realistic security vulnerabilities for cybersecurity training, ethical hacking workshops, and Capture The Flag (CTF) competitions.
 
 Unlike traditional static vulnerable labs, StellarX features a **dynamic exploit detection engine**, **taint tracking**, an **automated bounty/XP scoring system**, and an **in-game hardware shop** that simulates high-stakes financial cyberattacks in a safe, controlled sandbox.
