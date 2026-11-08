@@ -11,8 +11,8 @@ permissions:
   id-token: write
 
 env:
-  AWS_REGION: eu-north-1
-  ECR_REGISTRY: 526955696944.dkr.ecr.eu-north-1.amazonaws.com
+  AWS_REGION: ap-south-1
+  ECR_REGISTRY: 526955696944.dkr.ecr.ap-south-1.amazonaws.com
 
 jobs:
   build-and-push:
@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-      
+
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -39,7 +39,6 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: |
-            ${{ env.ECR_REGISTRY }}/vul-bank-backend:latest
             ${{ env.ECR_REGISTRY }}/vul-bank-backend:${{ github.sha }}
 
       - name: Build and push frontend
@@ -52,5 +51,4 @@ jobs:
           build-args: |
             BACKEND_URL=http://backend:8000
           tags: |
-            ${{ env.ECR_REGISTRY }}/vul-bank-frontend:latest
             ${{ env.ECR_REGISTRY }}/vul-bank-frontend:${{ github.sha }}
